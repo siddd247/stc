@@ -48,7 +48,6 @@ function App() {
   };
 
   return (
-    <Suspense fallback={<div className="bg-black min-h-screen" />}>
       <div className="bg-black min-h-screen text-foreground overflow-x-hidden selection:bg-white/20">
 
         {/* SECTION 1 — NAVBAR */}
@@ -153,11 +152,17 @@ function App() {
 
         {/* SECTION 2 — HERO */}
         <section id="home" className="relative w-full min-h-[1000px] bg-black overflow-hidden flex flex-col items-center pt-[15vh]">
-          <div className="absolute inset-0 z-0">
+          <div 
+            className="absolute inset-0 z-0 opacity-60 bg-cover bg-center" 
+            style={{ backgroundImage: "url('/images/hero_bg.jpeg')" }}
+          >
             <video
               src="/videos/bg3.mp4"
-              className="w-full h-full object-cover opacity-60"
-              autoPlay muted loop playsInline preload="none"
+              className="w-full h-full object-cover"
+              style={{ opacity: 0, transition: "opacity 0.5s ease" }}
+              onCanPlay={(e) => (e.currentTarget.style.opacity = "1")}
+              poster="/images/hero_bg.jpeg"
+              autoPlay muted loop playsInline preload="auto"
             />
           </div>
           <div className="absolute inset-0 bg-black/20 z-0" />
@@ -173,10 +178,12 @@ function App() {
               <span className="text-white/80 text-xs font-bold uppercase tracking-wider">Jammu's Premier Strength Gym</span>
             </motion.div>
 
-            <BlurText
-              text="THE STRENGTH CULTURE"
-              className="text-6xl md:text-7xl lg:text-[7.5rem] font-heading italic text-white leading-[0.8] tracking-[-3px] max-w-5xl mx-auto"
-            />
+            <Suspense fallback={<div className="h-[2em]" />}>
+              <BlurText
+                text="THE STRENGTH CULTURE"
+                className="text-6xl md:text-7xl lg:text-[7.5rem] font-heading italic text-white leading-[0.8] tracking-[-3px] max-w-5xl mx-auto"
+              />
+            </Suspense>
 
             <motion.p
               initial={{ filter: "blur(20px)", opacity: 0, y: 30 }}
@@ -215,11 +222,17 @@ function App() {
 
         {/* SECTION 4 — ABOUT SECTION */}
         <section id="about" className="relative w-full py-20 -mt-[100px] pb-[150px] px-6 md:px-16 lg:px-24 flex items-center justify-center bg-black overflow-hidden">
-          <div className="absolute inset-0 z-0">
+          <div 
+            className="absolute inset-0 z-0 opacity-60 bg-cover bg-center" 
+            style={{ backgroundImage: "url('/images/hero_bg.jpeg')" }}
+          >
             <video
               src="/videos/bg1.mp4"
-              className="w-full h-full object-cover opacity-60"
-              autoPlay muted loop playsInline preload="none"
+              className="w-full h-full object-cover"
+              style={{ opacity: 0, transition: "opacity 0.5s ease" }}
+              onCanPlay={(e) => (e.currentTarget.style.opacity = "1")}
+              poster="/images/hero_bg.jpeg"
+              autoPlay muted loop playsInline preload="auto"
             />
           </div>
           <div className="absolute top-0 left-0 right-0 h-[200px] bg-gradient-to-b from-black to-transparent z-[1]" />
@@ -344,12 +357,17 @@ function App() {
 
         {/* SECTION 7 — REACH US / CONTACT */}
         <section id="contact" className="relative py-40 px-6 md:px-16 lg:px-24 flex items-center justify-center bg-black min-h-[600px] flex-col">
-          <div className="absolute inset-0 z-0">
+          <div 
+            className="absolute inset-0 z-0 opacity-50 bg-cover bg-center" 
+            style={{ backgroundImage: "url('/images/hero_bg.jpeg')" }}
+          >
             <video
               src="/videos/bg2.mp4"
-              className="w-full h-full object-cover opacity-50"
-              style={{ filter: "saturate(0) contrast(1.2)" }}
-              autoPlay muted loop playsInline preload="none"
+              className="w-full h-full object-cover"
+              style={{ opacity: 0, transition: "opacity 0.5s ease", filter: "saturate(0) contrast(1.2)" }}
+              onCanPlay={(e) => (e.currentTarget.style.opacity = "1")}
+              poster="/images/hero_bg.jpeg"
+              autoPlay muted loop playsInline preload="auto"
             />
           </div>
           <div className="absolute top-0 left-0 right-0 h-[250px] bg-gradient-to-b from-black to-transparent z-[1]" />
@@ -438,11 +456,17 @@ function App() {
 
         {/* SECTION 9 — FOOTER */}
         <section className="relative pt-40 pb-12 px-6 md:px-16 lg:px-24 bg-black flex flex-col items-center overflow-hidden min-h-[800px] justify-between">
-          <div className="absolute inset-0 z-0">
+          <div 
+            className="absolute inset-0 z-0 opacity-60 bg-cover bg-center" 
+            style={{ backgroundImage: "url('/images/hero_bg.jpeg')" }}
+          >
             <video
-              src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260307_083826_e938b29f-a43a-41ec-a153-3d4730578ab8.mp4"
-              className="w-full h-full object-cover opacity-60"
-              autoPlay muted loop playsInline preload="none"
+              src="/videos/bg4.mp4"
+              className="w-full h-full object-cover"
+              style={{ opacity: 0, transition: "opacity 0.5s ease" }}
+              onCanPlay={(e) => (e.currentTarget.style.opacity = "1")}
+              poster="/images/hero_bg.jpeg"
+              autoPlay muted loop playsInline preload="auto"
             />
           </div>
           <div className="absolute top-0 left-0 right-0 h-[400px] bg-gradient-to-b from-black to-transparent z-[1]" />
@@ -472,7 +496,6 @@ function App() {
           </footer>
         </section>
       </div>
-    </Suspense>
   );
 }
 
