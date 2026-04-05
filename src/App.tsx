@@ -4,7 +4,7 @@ import { useState, lazy, Suspense } from "react";
 
 // Lazy load components
 const BlurText = lazy(() => import("./components/BlurText").then(module => ({ default: module.BlurText })));
-const HLSVideo = lazy(() => import("./components/HLSVideo").then(module => ({ default: module.HLSVideo })));
+
 
 const Badge = ({ children }: { children: React.ReactNode }) => (
   <div className="liquid-glass rounded-full px-3.5 py-1.5 text-xs font-medium text-white font-body inline-flex mb-6 border border-white/10 shadow-sm uppercase tracking-widest">
@@ -154,9 +154,10 @@ function App() {
         {/* SECTION 2 — HERO */}
         <section id="home" className="relative w-full min-h-[1000px] bg-black overflow-hidden flex flex-col items-center pt-[15vh]">
           <div className="absolute inset-0 z-0">
-            <HLSVideo
-              src="https://stream.mux.com/8wrHPCX2dC3msyYU9ObwqNdm00u3ViXvOSHUMRYSEe5Q.m3u8"
+            <video
+              src="/videos/bg3.mp4"
               className="w-full h-full object-cover opacity-60"
+              autoPlay muted loop playsInline preload="none"
             />
           </div>
           <div className="absolute inset-0 bg-black/20 z-0" />
@@ -167,9 +168,9 @@ function App() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="liquid-glass rounded-full p-2 pr-6 inline-flex items-center gap-4 mb-10 border border-white/10 shadow-xl scale-110"
+              className="liquid-glass rounded-full px-6 py-3 inline-flex items-center mb-10 border border-white/10 scale-110 md:mt-[20px]"
             >
-              <span className="bg-white text-black rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider">Jammu's Premier Strength Gym</span>
+              <span className="text-white/80 text-xs font-bold uppercase tracking-wider">Jammu's Premier Strength Gym</span>
             </motion.div>
 
             <BlurText
@@ -215,9 +216,10 @@ function App() {
         {/* SECTION 4 — ABOUT SECTION */}
         <section id="about" className="relative w-full py-20 -mt-[100px] pb-[150px] px-6 md:px-16 lg:px-24 flex items-center justify-center bg-black overflow-hidden">
           <div className="absolute inset-0 z-0">
-            <HLSVideo
-              src="https://stream.mux.com/9JXDljEVWYwWu01PUkAemafDugK89o01BR6zqJ3aS9u00A.m3u8"
+            <video
+              src="/videos/bg1.mp4"
               className="w-full h-full object-cover opacity-60"
+              autoPlay muted loop playsInline preload="none"
             />
           </div>
           <div className="absolute top-0 left-0 right-0 h-[200px] bg-gradient-to-b from-black to-transparent z-[1]" />
@@ -343,10 +345,11 @@ function App() {
         {/* SECTION 7 — REACH US / CONTACT */}
         <section id="contact" className="relative py-40 px-6 md:px-16 lg:px-24 flex items-center justify-center bg-black min-h-[600px] flex-col">
           <div className="absolute inset-0 z-0">
-            <HLSVideo
-              src="https://stream.mux.com/NcU3HlHeF7CUL86azTTzpy3Tlb00d6iF3BmCdFslMJYM.m3u8"
+            <video
+              src="/videos/bg2.mp4"
               className="w-full h-full object-cover opacity-50"
               style={{ filter: "saturate(0) contrast(1.2)" }}
+              autoPlay muted loop playsInline preload="none"
             />
           </div>
           <div className="absolute top-0 left-0 right-0 h-[250px] bg-gradient-to-b from-black to-transparent z-[1]" />
@@ -436,9 +439,10 @@ function App() {
         {/* SECTION 9 — FOOTER */}
         <section className="relative pt-40 pb-12 px-6 md:px-16 lg:px-24 bg-black flex flex-col items-center overflow-hidden min-h-[800px] justify-between">
           <div className="absolute inset-0 z-0">
-            <HLSVideo
+            <video
               src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260307_083826_e938b29f-a43a-41ec-a153-3d4730578ab8.mp4"
               className="w-full h-full object-cover opacity-60"
+              autoPlay muted loop playsInline preload="none"
             />
           </div>
           <div className="absolute top-0 left-0 right-0 h-[400px] bg-gradient-to-b from-black to-transparent z-[1]" />
